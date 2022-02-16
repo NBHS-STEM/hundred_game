@@ -1,6 +1,11 @@
 import itertools
+import os
 
-# global vars
+
+# Instructions & setup
+os.system('clear')
+print("This is the 💯 game - on your turn you'll choose a whole number between 1 and 10 to add to the shared total.\nWhichever player reaches 100 first wins the game!\n")
+
 total = 0
 player = itertools.cycle('12')
 
@@ -18,7 +23,7 @@ while True:
 		except ValueError:
 			print("Invalid entry")
 	total += step
-	if total == 100:
+	if total >= 100:
 		print(f"Player {player} wins!")
 		break
 	
