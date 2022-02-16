@@ -5,30 +5,23 @@ class NumberError(Exception):
 total = 0
 player = itertools.cycle('12')
 
-step = (input(f"Player {next(player)},a number between 1 and 10: "))
 
 while True:
   print(f"\nThe current total is {total}.")
   try:
-    if int(step)%1 != 0:
-      raise NumberError
-    elif int(step)<1:
-      raise NumberError
-    elif int(step)>10:
-      raise NumberError
-    else:
-      pass
+    step = int(input(f"Player {next(player)}, choose a number between 1 and 10 to add: "))
+    if not (1 <= step <= 10):
+      raise ValueError
+      break
   except ValueError:
-    print("ints only")
-  except NumberError:
-    print("Not Valid")
-  else:
-    break
+      print("Invalid entry")
+      if ValueError:
+        step = int(input(f"choose another a number between 1 and 10 to add: "))
 
   total += step
   if total == 100:
-	  print(f"Player {player} wins!")
-	  break
+    print(f"Player {player} wins!")
+    break
 	
 	
 	
